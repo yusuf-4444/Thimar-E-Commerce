@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:thimar_app/core/constants/assets.dart';
-import 'package:thimar_app/core/router/routes.dart';
+import 'package:thimar_app/core/router/app_routes.dart';
+import 'package:thimar_app/core/services/shared_preferences_singelton.dart';
+import 'package:thimar_app/core/utils/app_constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -162,8 +164,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void executeNavigation() {
+    bool isFirstLaunch = SharedPreferencesSingelton.getBool(
+      AppConstants.kgetOnBoardingKey,
+    );
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, Routes.onBoarding);
+      if (!isFirstLaunch) {
+        Navigator.pushReplacementNamed(context, AppRoutes.onBoarding);
+      } else {
+        Navigator.pushReplacementNamed(context, AppRoutes.login);
+      }
     });
   }
 }

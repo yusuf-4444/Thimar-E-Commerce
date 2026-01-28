@@ -53,6 +53,26 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Welcome to`
+  String get onboardingTitle1 {
+    return Intl.message(
+      'Welcome to',
+      name: 'onboardingTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thimar`
+  String get onboardingTitle2 {
+    return Intl.message('Thimar', name: 'onboardingTitle2', desc: '', args: []);
+  }
+
+  /// `Skip`
+  String get onBoardingTitle3 {
+    return Intl.message('Skip', name: 'onBoardingTitle3', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

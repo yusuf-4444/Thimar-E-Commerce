@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:thimar_app/core/router/router.dart';
-import 'package:thimar_app/core/router/routes.dart';
-import 'package:thimar_app/generated/l10n.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/router/app_router.dart';
+import 'package:thimar_app/core/router/app_routes.dart';
+import 'package:thimar_app/core/utils/app_themes.dart';
+import 'package:thimar_app/l10n/l10n.dart';
 
-void main() {
+import 'core/services/shared_preferences_singelton.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesSingelton.init();
   runApp(ThimarApp());
 }
 
@@ -13,19 +19,23 @@ class ThimarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: const Locale('ar'),
-      debugShowCheckedModeBanner: false,
-      title: 'Thimar App',
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      initialRoute: Routes.splash,
-      onGenerateRoute: Router.onGenerateRoute,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      child: MaterialApp(
+        locale: const Locale('ar'),
+        debugShowCheckedModeBanner: false,
+        title: 'Thimar App',
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
+        initialRoute: AppRoutes.splash,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        theme: AppThemes.lightTheme,
+      ),
     );
   }
 }
