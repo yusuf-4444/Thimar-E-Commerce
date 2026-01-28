@@ -87,4 +87,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsOfService => 'الشروط والأحكام الخاصة بنا ';
+
+  @override
+  String get direction => 'rtl';
 }

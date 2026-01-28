@@ -24,5 +24,6 @@
   "alreadyHaveAccount": "تمتلك حساب بالفعل؟ ",
   "loginNow": "تسجيل دخول",
   "termsAndConditions": "من خلال إنشاء حساب ، فإنك توافق على ",
-  "termsOfService": "الشروط والأحكام الخاصة بنا "
+  "termsOfService": "الشروط والأحكام الخاصة بنا ",
+  "direction": "rtl"
 }

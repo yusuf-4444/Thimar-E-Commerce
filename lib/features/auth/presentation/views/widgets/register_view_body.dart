@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:thimar_app/core/constants/custom_button.dart';
 import 'package:thimar_app/core/utils/app_colors.dart';
 import 'package:thimar_app/core/utils/app_text_styles.dart';
-import 'package:thimar_app/features/login/presentation/views/widgets/custom_check_box.dart';
-import 'package:thimar_app/features/login/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:thimar_app/features/auth/presentation/views/widgets/custom_check_box.dart';
+import 'package:thimar_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:thimar_app/l10n/l10n.dart';
 
 class RegisterViewBody extends StatefulWidget {

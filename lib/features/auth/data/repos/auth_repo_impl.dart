@@ -1,0 +1,39 @@
+import 'package:dartz/dartz.dart';
+import 'package:thimar_app/core/errors/exceptions.dart';
+import 'package:thimar_app/core/errors/faliures.dart';
+import 'package:thimar_app/core/services/firebase_auth_service.dart';
+import 'package:thimar_app/features/auth/data/models/user_model.dart';
+import 'package:thimar_app/features/auth/domain/entities/user_entity.dart';
+import 'package:thimar_app/features/auth/domain/repos/auth_repo.dart';
+
+class AuthRepoImpl extends AuthRepo {
+  final FirebaseAuthService firebaseAuthService;
+  AuthRepoImpl({required this.firebaseAuthService});
+
+  @override
+  Future<Either<Faliures, UserEntity>> createAccountWithEmailAndPassword(
+    String email,
+    String password,
+    String name,
+  ) async {
+    try {
+      final user = await firebaseAuthService.createUserWithEmailAndPassword(
+        emailAddress: email,
+        password: password,
+        name: name,
+      );
+
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomExceptions catch (e) {
+      return Left(ServerFaliures(e.message));
+    } catch (e) {
+      return Left(ServerFaliures('An unknown error occurred.'));
+    }
+  }
+
+  @override
+  Future<UserEntity> login() {
+    // TODO: implement login
+    throw UnimplementedError();
+  }
+}

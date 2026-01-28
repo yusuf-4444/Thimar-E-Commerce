@@ -68,13 +68,19 @@ class _SocialLoginButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 17.9),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SvgPicture.asset(icon, width: 24.w, height: 24.h),
-              Gap(54.w),
-              Text(
-                text,
-                style: AppTextStyles.semibold16.copyWith(color: Colors.black),
+              Align(
+                alignment: AppLocalizations.of(context)!.direction == 'ltr'
+                    ? Alignment.centerLeft
+                    : Alignment.centerRight,
+                child: SvgPicture.asset(icon, width: 24.w, height: 24.h),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  text,
+                  style: AppTextStyles.semibold16.copyWith(color: Colors.black),
+                ),
               ),
             ],
           ),

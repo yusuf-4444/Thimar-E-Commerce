@@ -253,6 +253,12 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'الشروط والأحكام الخاصة بنا '**
   String get termsOfService;
+
+  /// No description provided for @direction.
+  ///
+  /// In ar, this message translates to:
+  /// **'rtl'**
+  String get direction;
 }
 
 class _AppLocalizationsDelegate

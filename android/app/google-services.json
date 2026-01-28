@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "57230187702",
+    "project_id": "themar-app-75c5e",
+    "storage_bucket": "themar-app-75c5e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57230187702:android:008a488df427a53884da17",
+        "android_client_info": {
+          "package_name": "com.example.thimar_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD0VGsNyUAit5BzXkWSS4oH-zfJsIonT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
