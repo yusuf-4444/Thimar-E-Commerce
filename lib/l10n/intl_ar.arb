@@ -31,5 +31,7 @@
   "emailAlreadyInUseError": "الحساب موجود بالفعل بهذا الإيميل",
   "invalidEmailError": "الإيميل غير صحيح",
   "unknownError": "حدث خطأ غير متوقع",
-  "tryAgainLater": "حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا"
+  "tryAgainLater": "حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا",
+  "userNotFound": "المستخدم غير موجود",
+  "wrongPassword": "كلمة المرور غير صحيحة"
 }

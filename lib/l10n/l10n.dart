@@ -295,6 +295,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا'**
   String get tryAgainLater;
+
+  /// No description provided for @userNotFound.
+  ///
+  /// In ar, this message translates to:
+  /// **'المستخدم غير موجود'**
+  String get userNotFound;
+
+  /// No description provided for @wrongPassword.
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور غير صحيحة'**
+  String get wrongPassword;
 }
 
 class _AppLocalizationsDelegate

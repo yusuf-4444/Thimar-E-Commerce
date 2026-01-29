@@ -3,10 +3,13 @@ import 'package:thimar_app/core/errors/faliures.dart';
 import 'package:thimar_app/features/auth/domain/entities/user_entity.dart';
 
 abstract class AuthRepo {
-  Future<UserEntity> login();
   Future<Either<Faliures, UserEntity>> createAccountWithEmailAndPassword(
     String email,
     String password,
     String name,
+  );
+  Future<Either<Faliures, UserEntity>> signInWithEmailAndPassword(
+    String email,
+    String password,
   );
 }

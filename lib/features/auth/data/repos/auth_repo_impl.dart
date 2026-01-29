@@ -32,8 +32,20 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<UserEntity> login() {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<Either<Faliures, UserEntity>> signInWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
+    try {
+      final user = await firebaseAuthService.signInWithEmailAndPassword(
+        emailAddress: email,
+        password: password,
+      );
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomExceptions catch (e) {
+      return Left(ServerFaliures(e.message));
+    } catch (e) {
+      return Left(ServerFaliures('An unknown error occurred.'));
+    }
   }
 }

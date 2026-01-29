@@ -18,6 +18,7 @@ class RegisterViewBody extends StatefulWidget {
 }
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
+  bool isPasswordVisible = false;
   bool isTermsAccepted = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
@@ -35,59 +36,58 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
               Gap(24.h),
               CustomTextFormField(
                 label: AppLocalizations.of(context)!.fullName,
+                onSaved: (value) {
+                  name = value;
+                },
               ),
               Gap(16.h),
               CustomTextFormField(
                 label: AppLocalizations.of(context)!.email,
                 keyboardType: TextInputType.emailAddress,
+                onSaved: (value) {
+                  email = value;
+                },
               ),
               Gap(16.h),
-              CustomTextFormField(
-                label: AppLocalizations.of(context)!.password,
-                isPassword: true,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xffC9CECF),
-                ),
-                keyboardType: TextInputType.visiblePassword,
+              // CustomTextFormField(
+              //   label: AppLocalizations.of(context)!.password,
+              //   isPassword: isPasswordVisible,
+              //   suffixIcon: InkWell(
+              //     onTap: () {
+              //       setState(() {
+              //         isPasswordVisible = !isPasswordVisible;
+              //       });
+              //     },
+              //     child: isPasswordVisible
+              //         ? Icon(Icons.remove_red_eye, color: Color(0xffC9CECF))
+              //         : Icon(Icons.visibility_off, color: Color(0xffC9CECF)),
+              //   ),
+              //   keyboardType: TextInputType.visiblePassword,
+              //   onSaved: (value) {
+              //     password = value;
+              //   },
+              // ),
+              CustomPasswordFormField(
+                isPasswordVisible: isPasswordVisible,
+                onTap: () {
+                  setState(() {
+                    isPasswordVisible = !isPasswordVisible;
+                  });
+                },
+                onSaved: (value) {
+                  password = value;
+                },
               ),
               Gap(16.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 16,
-                children: [
-                  InkWell(
-                    onTap: () =>
-                        setState(() => isTermsAccepted = !isTermsAccepted),
-                    child: CustomCheckBox(isChecked: isTermsAccepted),
-                  ),
-                  Text.rich(
-                    softWrap: true,
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: AppLocalizations.of(
-                            context,
-                          )!.termsAndConditions,
-                          style: AppTextStyles.semibold13.copyWith(
-                            color: AppColors.gray400,
-                          ),
-                        ),
-                        TextSpan(
-                          text: AppLocalizations.of(context)!.termsOfService,
-                          style: AppTextStyles.semibold13.copyWith(
-                            color: AppColors.lightPrimaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.right,
-                  ),
-                ],
+              TermsAndConditions(
+                onChanged: (value) {
+                  isTermsAccepted = value;
+                  setState(() {});
+                },
               ),
               Gap(30.h),
               CustomButton(
+                isEnabled: isTermsAccepted,
                 text: AppLocalizations.of(context)!.createNewAccount,
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
@@ -130,6 +130,87 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class TermsAndConditions extends StatefulWidget {
+  const TermsAndConditions({super.key, required this.onChanged});
+
+  final ValueChanged<bool>? onChanged;
+
+  @override
+  State<TermsAndConditions> createState() => _TermsAndConditionsState();
+}
+
+class _TermsAndConditionsState extends State<TermsAndConditions> {
+  bool isTermsAccepted = false;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InkWell(
+          onTap: () => setState(() {
+            isTermsAccepted = !isTermsAccepted;
+            widget.onChanged?.call(isTermsAccepted);
+          }),
+          child: CustomCheckBox(isChecked: isTermsAccepted),
+        ),
+        SizedBox(width: 16.w), // بدل spacing
+        Expanded(
+          // ده الحل الأساسي
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: AppLocalizations.of(context)!.termsAndConditions,
+                  style: AppTextStyles.semibold13.copyWith(
+                    color: AppColors.gray400,
+                  ),
+                ),
+                TextSpan(
+                  text: AppLocalizations.of(context)!.termsOfService,
+                  style: AppTextStyles.semibold13.copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            textAlign: TextAlign.right,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomPasswordFormField extends StatelessWidget {
+  const CustomPasswordFormField({
+    super.key,
+    this.onTap,
+    this.onSaved,
+    required this.isPasswordVisible,
+  });
+
+  final void Function()? onTap;
+  final void Function(String?)? onSaved;
+  final bool isPasswordVisible;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextFormField(
+      label: AppLocalizations.of(context)!.password,
+      isPassword: isPasswordVisible,
+      suffixIcon: InkWell(
+        onTap: onTap,
+        child: isPasswordVisible
+            ? Icon(Icons.remove_red_eye, color: Color(0xffC9CECF))
+            : Icon(Icons.visibility_off, color: Color(0xffC9CECF)),
+      ),
+      keyboardType: TextInputType.visiblePassword,
+      onSaved: onSaved,
     );
   }
 }

@@ -108,4 +108,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get tryAgainLater => 'حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا';
+
+  @override
+  String get userNotFound => 'المستخدم غير موجود';
+
+  @override
+  String get wrongPassword => 'كلمة المرور غير صحيحة';
 }
