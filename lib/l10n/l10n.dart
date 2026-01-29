@@ -259,6 +259,42 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'rtl'**
   String get direction;
+
+  /// No description provided for @validator.
+  ///
+  /// In ar, this message translates to:
+  /// **'هذا الحقل مطلوب'**
+  String get validator;
+
+  /// No description provided for @weakPasswordError.
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور ضعيفة جدًا'**
+  String get weakPasswordError;
+
+  /// No description provided for @emailAlreadyInUseError.
+  ///
+  /// In ar, this message translates to:
+  /// **'الحساب موجود بالفعل بهذا الإيميل'**
+  String get emailAlreadyInUseError;
+
+  /// No description provided for @invalidEmailError.
+  ///
+  /// In ar, this message translates to:
+  /// **'الإيميل غير صحيح'**
+  String get invalidEmailError;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In ar, this message translates to:
+  /// **'حدث خطأ غير متوقع'**
+  String get unknownError;
+
+  /// No description provided for @tryAgainLater.
+  ///
+  /// In ar, this message translates to:
+  /// **'حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا'**
+  String get tryAgainLater;
 }
 
 class _AppLocalizationsDelegate

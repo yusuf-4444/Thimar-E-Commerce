@@ -90,4 +90,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get direction => 'rtl';
+
+  @override
+  String get validator => 'هذا الحقل مطلوب';
+
+  @override
+  String get weakPasswordError => 'كلمة المرور ضعيفة جدًا';
+
+  @override
+  String get emailAlreadyInUseError => 'الحساب موجود بالفعل بهذا الإيميل';
+
+  @override
+  String get invalidEmailError => 'الإيميل غير صحيح';
+
+  @override
+  String get unknownError => 'حدث خطأ غير متوقع';
+
+  @override
+  String get tryAgainLater => 'حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا';
 }

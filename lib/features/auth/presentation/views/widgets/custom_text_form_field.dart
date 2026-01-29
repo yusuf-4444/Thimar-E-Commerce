@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thimar_app/core/utils/app_colors.dart';
 import 'package:thimar_app/core/utils/app_text_styles.dart';
+import 'package:thimar_app/l10n/l10n.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -9,12 +10,14 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     required this.label,
     this.suffixIcon,
+    this.onSaved,
   });
 
   final bool isPassword;
   final TextInputType keyboardType;
   final String label;
   final Widget? suffixIcon;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +39,11 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: isPassword,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Please enter some text';
+          return AppLocalizations.of(context)!.validator;
         }
         return null;
       },
+      onSaved: onSaved,
     );
   }
 

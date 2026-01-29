@@ -25,5 +25,11 @@
   "loginNow": "تسجيل دخول",
   "termsAndConditions": "من خلال إنشاء حساب ، فإنك توافق على ",
   "termsOfService": "الشروط والأحكام الخاصة بنا ",
-  "direction": "rtl"
+  "direction": "rtl",
+  "validator": "هذا الحقل مطلوب",
+  "weakPasswordError": "كلمة المرور ضعيفة جدًا",
+  "emailAlreadyInUseError": "الحساب موجود بالفعل بهذا الإيميل",
+  "invalidEmailError": "الإيميل غير صحيح",
+  "unknownError": "حدث خطأ غير متوقع",
+  "tryAgainLater": "حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا"
 }

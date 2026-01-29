@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_app/core/di/dependency_injection.dart';
 import 'package:thimar_app/core/router/app_router.dart';
 import 'package:thimar_app/core/router/app_routes.dart';
 import 'package:thimar_app/core/utils/app_themes.dart';
@@ -14,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesSingelton.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await setUpGetIt();
   runApp(ThimarApp());
 }
 

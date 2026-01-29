@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:thimar_app/core/errors/exceptions.dart';
+import 'package:thimar_app/l10n/l10n.dart';
 
 class FirebaseAuthService {
   Future<User> createUserWithEmailAndPassword({
@@ -16,7 +17,7 @@ class FirebaseAuthService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        throw CustomExceptions('The password provided is too weak.');
+        throw CustomExceptions(AppLocalizations.of(context)!.weakPasswordError);
       } else if (e.code == 'email-already-in-use') {
         throw CustomExceptions('The account already exists for that email.');
       } else {

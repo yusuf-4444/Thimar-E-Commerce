@@ -75,11 +75,14 @@ class _SocialLoginButton extends StatelessWidget {
                     : Alignment.centerRight,
                 child: SvgPicture.asset(icon, width: 24.w, height: 24.h),
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  text,
-                  style: AppTextStyles.semibold16.copyWith(color: Colors.black),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    text,
+                    style: AppTextStyles.semibold16.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               ),
             ],
