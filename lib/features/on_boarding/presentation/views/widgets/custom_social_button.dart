@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:thimar_app/core/constants/assets.dart';
 import 'package:thimar_app/core/utils/app_text_styles.dart';
+import 'package:thimar_app/features/auth/presentation/cubits/signin_cubit.dart/signin_cubit.dart';
 import 'package:thimar_app/l10n/l10n.dart';
 
 class SocialLoginButtons extends StatelessWidget {
@@ -16,19 +20,29 @@ class SocialLoginButtons extends StatelessWidget {
         _SocialLoginButton(
           icon: Assets.imagesGoogleIcon,
           text: AppLocalizations.of(context)!.signInWithGoogle,
-          onTap: () {},
+          onTap: () {
+            BlocProvider.of<SigninCubit>(context).signInWithGoogle();
+          },
         ),
         Gap(12.h),
-        _SocialLoginButton(
-          icon: Assets.imagesApplIcon,
-          text: AppLocalizations.of(context)!.signInWithApple,
-          onTap: () {},
-        ),
-        Gap(12.h),
+        Platform.isIOS
+            ? Column(
+                children: [
+                  _SocialLoginButton(
+                    icon: Assets.imagesApplIcon,
+                    text: AppLocalizations.of(context)!.signInWithApple,
+                    onTap: () {},
+                  ),
+                  Gap(12.h),
+                ],
+              )
+            : SizedBox.shrink(),
         _SocialLoginButton(
           icon: Assets.imagesFacebookIcon,
           text: AppLocalizations.of(context)!.signInWithFacebook,
-          onTap: () {},
+          onTap: () {
+            BlocProvider.of<SigninCubit>(context).signInWithFacebook();
+          },
         ),
       ],
     );

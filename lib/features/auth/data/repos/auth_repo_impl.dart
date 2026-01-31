@@ -22,7 +22,6 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
         name: name,
       );
-
       return Right(UserModel.fromFirebaseUser(user));
     } on CustomExceptions catch (e) {
       return Left(ServerFaliures(e.message));
@@ -41,6 +40,32 @@ class AuthRepoImpl extends AuthRepo {
         emailAddress: email,
         password: password,
       );
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomExceptions catch (e) {
+      return Left(ServerFaliures(e.message));
+    } catch (e) {
+      return Left(ServerFaliures('An unknown error occurred.'));
+    }
+  }
+
+  @override
+  Future<Either<Faliures, UserEntity>> signinWithGoogle() async {
+    try {
+      final userCredential = await firebaseAuthService.signInWithGoogle();
+      final user = userCredential.user!;
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomExceptions catch (e) {
+      return Left(ServerFaliures(e.message));
+    } catch (e) {
+      return Left(ServerFaliures('An unknown error occurred.'));
+    }
+  }
+
+  @override
+  Future<Either<Faliures, UserEntity>> signinWithFacebook() async {
+    try {
+      final userCredential = await firebaseAuthService.signInWithFacebook();
+      final user = userCredential.user!;
       return Right(UserModel.fromFirebaseUser(user));
     } on CustomExceptions catch (e) {
       return Left(ServerFaliures(e.message));

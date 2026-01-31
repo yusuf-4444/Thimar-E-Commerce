@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="facebook_app_id">1215960000639482</string>
+<string name="fb_login_protocol_scheme">fb1234</string>
+<string name="facebook_client_token">d3643efe7c2151708e73f8e5f3950459</string>
+<string name="app_name">thimar_app</string>
+</resources>
