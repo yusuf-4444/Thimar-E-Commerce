@@ -38,9 +38,7 @@ class RegisterViewBodyBlocConsumer extends StatelessWidget {
             ),
           );
         } else if (state is SignupSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Welcome, ${state.userEntity.name}!')),
-          );
+          Navigator.pop(context);
         }
       },
       buildWhen: (previous, current) =>

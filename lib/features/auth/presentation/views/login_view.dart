@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:thimar_app/core/router/app_routes.dart';
 import 'package:thimar_app/core/utils/app_colors.dart';
 import 'package:thimar_app/core/utils/error_message_helper.dart';
 import 'package:thimar_app/features/auth/presentation/cubits/signin_cubit.dart/signin_cubit.dart';
@@ -26,6 +27,11 @@ class LoginView extends StatelessWidget {
         } else if (state is SigninSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Welcome back, ${state.user.name}!')),
+          );
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.navBar,
+            (route) => false,
           );
         }
       },

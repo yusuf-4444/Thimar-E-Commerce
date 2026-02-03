@@ -114,4 +114,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wrongPassword => 'كلمة المرور غير صحيحة';
+
+  @override
+  String get goodMorning => 'صباح الخير!..';
+
+  @override
+  String get searchOn => 'ابحث في ثمار';
+
+  @override
+  String get eidOffers => 'عروض العيد';
+
+  @override
+  String get discount25 => 'خصم 25%';
+
+  @override
+  String get shopNow => 'تسوق الآن';
+
+  @override
+  String get topSelling => 'الأكثر مبيعًا';
+
+  @override
+  String get more => 'المزيد';
 }

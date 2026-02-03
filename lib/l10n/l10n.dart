@@ -307,6 +307,48 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'كلمة المرور غير صحيحة'**
   String get wrongPassword;
+
+  /// No description provided for @goodMorning.
+  ///
+  /// In ar, this message translates to:
+  /// **'صباح الخير!..'**
+  String get goodMorning;
+
+  /// No description provided for @searchOn.
+  ///
+  /// In ar, this message translates to:
+  /// **'ابحث في ثمار'**
+  String get searchOn;
+
+  /// No description provided for @eidOffers.
+  ///
+  /// In ar, this message translates to:
+  /// **'عروض العيد'**
+  String get eidOffers;
+
+  /// No description provided for @discount25.
+  ///
+  /// In ar, this message translates to:
+  /// **'خصم 25%'**
+  String get discount25;
+
+  /// No description provided for @shopNow.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسوق الآن'**
+  String get shopNow;
+
+  /// No description provided for @topSelling.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأكثر مبيعًا'**
+  String get topSelling;
+
+  /// No description provided for @more.
+  ///
+  /// In ar, this message translates to:
+  /// **'المزيد'**
+  String get more;
 }
 
 class _AppLocalizationsDelegate

@@ -33,5 +33,12 @@
   "unknownError": "حدث خطأ غير متوقع",
   "tryAgainLater": "حدث خطأ، برجاء المحاولة مرة أخرى لاحقًا",
   "userNotFound": "المستخدم غير موجود",
-  "wrongPassword": "كلمة المرور غير صحيحة"
+  "wrongPassword": "كلمة المرور غير صحيحة",
+  "goodMorning": "صباح الخير!..",
+  "searchOn": "ابحث في ثمار",
+  "eidOffers": "عروض العيد",
+  "discount25": "خصم 25%",
+  "shopNow": "تسوق الآن",
+  "topSelling": "الأكثر مبيعًا",
+  "more": "المزيد"
 }

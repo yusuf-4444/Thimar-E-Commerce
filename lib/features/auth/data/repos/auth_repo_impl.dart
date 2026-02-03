@@ -32,6 +32,7 @@ class AuthRepoImpl extends AuthRepo {
         );
         return Right(UserModel.fromFirebaseUser(user));
       } on Exception catch (e) {
+        firestoreServices.deleteData(path: AppPathes.addUserData(user.uid));
         return Left(ServerFaliures(e.toString()));
       }
     } on CustomExceptions catch (e) {
@@ -51,6 +52,14 @@ class AuthRepoImpl extends AuthRepo {
         emailAddress: email,
         password: password,
       );
+      final userData = await firestoreServices.getDocument(
+        path: AppPathes.addUserData(user.uid),
+        builder: (data, documentID) {
+          return UserModel.fromMap(data);
+        },
+      );
+      print(userData.email);
+      print(userData.name);
       return Right(UserModel.fromFirebaseUser(user));
     } on CustomExceptions catch (e) {
       return Left(ServerFaliures(e.message));
@@ -64,6 +73,24 @@ class AuthRepoImpl extends AuthRepo {
     try {
       final userCredential = await firebaseAuthService.signInWithGoogle();
       final user = userCredential.user!;
+      if (userCredential.additionalUserInfo != null &&
+          userCredential.additionalUserInfo!.isNewUser) {
+        firestoreServices.setData(
+          path: AppPathes.addUserData(user.uid),
+          data: UserEntity(
+            name: user.displayName ?? '',
+            email: user.email ?? '',
+            uId: user.uid,
+          ).toMap(),
+        );
+      } else {
+        await firestoreServices.getDocument(
+          path: AppPathes.addUserData(user.uid),
+          builder: (data, documentID) {
+            return UserModel.fromMap(data);
+          },
+        );
+      }
       return Right(UserModel.fromFirebaseUser(user));
     } on CustomExceptions catch (e) {
       return Left(ServerFaliures(e.message));
