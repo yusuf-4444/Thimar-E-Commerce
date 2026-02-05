@@ -349,6 +349,36 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'المزيد'**
   String get more;
+
+  /// No description provided for @home.
+  ///
+  /// In ar, this message translates to:
+  /// **' الرئيسية'**
+  String get home;
+
+  /// No description provided for @categories.
+  ///
+  /// In ar, this message translates to:
+  /// **' المنتجات'**
+  String get categories;
+
+  /// No description provided for @cartShopping.
+  ///
+  /// In ar, this message translates to:
+  /// **'    سلة التسوق'**
+  String get cartShopping;
+
+  /// No description provided for @myAccount.
+  ///
+  /// In ar, this message translates to:
+  /// **' حسابي'**
+  String get myAccount;
+
+  /// No description provided for @mostSelling.
+  ///
+  /// In ar, this message translates to:
+  /// **'الأكثر مبيعًا'**
+  String get mostSelling;
 }
 
 class _AppLocalizationsDelegate

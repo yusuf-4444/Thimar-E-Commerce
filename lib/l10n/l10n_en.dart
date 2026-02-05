@@ -135,4 +135,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get more => 'المزيد';
+
+  @override
+  String get home => ' الرئيسية';
+
+  @override
+  String get categories => ' المنتجات';
+
+  @override
+  String get cartShopping => '    سلة التسوق';
+
+  @override
+  String get myAccount => ' حسابي';
+
+  @override
+  String get mostSelling => 'الأكثر مبيعًا';
 }

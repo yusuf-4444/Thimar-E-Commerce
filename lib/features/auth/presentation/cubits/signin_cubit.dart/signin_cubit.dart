@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:thimar_app/core/services/firebase_auth_service.dart';
 import 'package:thimar_app/features/auth/domain/entities/user_entity.dart';
 import 'package:thimar_app/features/auth/domain/repos/auth_repo.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:thimar_app/core/constants/assets.dart';
 import 'package:thimar_app/core/router/app_routes.dart';
+import 'package:thimar_app/core/services/firebase_auth_service.dart';
 import 'package:thimar_app/core/services/shared_preferences_singelton.dart';
 import 'package:thimar_app/core/utils/app_constants.dart';
 
@@ -171,7 +172,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
       if (!isFirstLaunch) {
         Navigator.pushReplacementNamed(context, AppRoutes.onBoarding);
       } else {
-        Navigator.pushReplacementNamed(context, AppRoutes.login);
+        FirebaseAuthService firebaseAuthService = FirebaseAuthService();
+        if (firebaseAuthService.isLoggedIn()) {
+          Navigator.pushReplacementNamed(context, AppRoutes.navBar);
+          return;
+        } else {
+          Navigator.pushReplacementNamed(context, AppRoutes.login);
+        }
       }
     });
   }

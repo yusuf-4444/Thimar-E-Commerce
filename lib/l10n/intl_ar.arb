@@ -40,5 +40,10 @@
   "discount25": "خصم 25%",
   "shopNow": "تسوق الآن",
   "topSelling": "الأكثر مبيعًا",
-  "more": "المزيد"
+  "more": "المزيد",
+  "home": " الرئيسية",
+  "categories": " المنتجات",
+  "cartShopping": "    سلة التسوق",
+  "myAccount": " حسابي",
+  "mostSelling": "الأكثر مبيعًا"
 }

@@ -58,6 +58,7 @@ class AuthRepoImpl extends AuthRepo {
           return UserModel.fromMap(data);
         },
       );
+
       print(userData.email);
       print(userData.name);
       return Right(UserModel.fromFirebaseUser(user));

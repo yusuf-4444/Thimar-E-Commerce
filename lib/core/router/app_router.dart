@@ -12,6 +12,7 @@ import 'package:thimar_app/features/auth/presentation/views/register_view.dart';
 import 'package:thimar_app/features/home/presentation/views/home_view.dart';
 import 'package:thimar_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:thimar_app/features/splash/presentation/views/splash_view.dart';
+import 'package:thimar_app/features/top_selling.dart/presentation/views/top_selling_view.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -29,6 +30,8 @@ class AppRouter {
         );
       case AppRoutes.navBar:
         return CupertinoPageRoute(builder: (_) => const CustomNavBar());
+      case AppRoutes.topSelling:
+        return CupertinoPageRoute(builder: (_) => const TopSellingView());
       case AppRoutes.register:
         return CupertinoPageRoute(
           builder: (_) => BlocProvider(

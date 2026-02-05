@@ -5,4 +5,5 @@ class AppRoutes {
   static const String register = '/register';
   static const String home = '/home';
   static const String navBar = '/navBar';
+  static const String topSelling = '/top-selling';
 }
